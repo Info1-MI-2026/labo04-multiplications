@@ -35,6 +35,9 @@ details:
       negative:
         description: Les valeurs négatives sont gérées
         points: 2
+  testing:
+    description: Rapport de test présent et complet
+    points: 5
   build:
     description: Compilation du code
     with-no-errors:

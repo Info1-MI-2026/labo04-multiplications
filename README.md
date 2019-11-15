@@ -13,19 +13,21 @@ Cette fois-ci nous n'allons pas utiliser les arguments mais l'entrée standard `
 
 De plus en plus, la qualité du code est évaluée. Pour mémoire:
 
-- Un commentaire en début de programme explique le but du programme à celui qui découvre le code.
-- Vos variables sont nommées de façon appropriée.
-- Le *scope* de vos variable est minimum.
-- Les constantes littérales sont nommées pour une meilleure compréhension.
-- Les types de donnée doivent être appropriés.
-- Le programme doit être robuste, les cas d'exception doivent être traités
+- Un **commentaire** en début de programme explique le but du programme à celui qui découvre le code.
+- Vos variables sont nommées de façon **appropriées**.
+- La **visibilité** (*scope*) de vos variable est minimum.
+- Les **constantes littérales** sont nommées pour une meilleure compréhension.
+- Les **types** de donnée doivent être appropriés.
+- Le programme doit être **robuste**, les cas d'exception doivent être traités
 
 ## Procédure de développement
 
-1. Commencez par vous familiariser avec les menus
-2. Testez séparément chacunes de vos fonctions en laissant le menu de côté (tests unitaires)
+1. Commencez par vous familiariser avec les **menus**
+2. Testez **séparément** chacunes de vos **fonctions** en laissant le menu de côté (tests unitaires)
 3. Intégrer chaques briques de votre programme
 4. Faites des tests fonctionnels
+5. Rédigez votre rapport de test
+6. Vérifier que votre travail respecte les critères d'évaluation présents dans `criteria.yml`
 
 ## Compilation du code
 
@@ -35,7 +37,7 @@ Pour compiler ce code vous utiliserez cette commande:
 gcc -std=c99 -Wall -otabelle tabelle.c
 ```
 
-Mieux (oui c'est mieux), vous pouvez directement utiliser le `Makefile` associé:
+Mieux (**oui c'est mieux**), vous pouvez directement utiliser le `Makefile` associé:
 
 ```console
 make
@@ -128,7 +130,7 @@ int main(void) {
 }
 ```
 
-Il est courant de faire figurer les options possibles entre crochet et mettre en majuscule la valeur par défaut.
+Il est courant de faire figurer les options possibles entre crochets (`[]`) et mettre en majuscule la valeur par défaut p.ex: `[Yn]` pour `Yes` et `No`.
 
 ## Table de multiplication
 
@@ -137,7 +139,7 @@ Lorsque l'utilisateur choisi cette option l'invité de commande serait le suivan
 ```console
 
 Largeur des colonnes [3]: 4
-Valeur de N (1..10) [10]: 5
+Livret le plus élevé (1..10) [10]: 5
 
   X |  1 |  2 |  3 |  4 | 5
 ----+----+----+----+----+----
@@ -157,7 +159,9 @@ Voulez-vous recommencer [Y/n] ? :
 
 ## Test de votre programme
 
-Il vous est demandé d'écrire un petit rapport de test dans le fichier `report.md`. Faites-y figurer quelques résultats de bon fonctionnement de votre programme. Inspirez-vous de la structure de ce fichier `README.md` pour afficher des exemples de code.
+Il vous est demandé d'écrire un petit rapport de test dans le fichier `report.md`.
+
+Faites-y figurer quelques résultats de bon fonctionnement de votre programme. Inspirez-vous de la structure de ce fichier `README.md` pour afficher des exemples de code.
 
 Pour tester de façon plus automatique votre programme, vous pouvez directement envoyer les valeurs à saisir sur `stdin`. Voici par exemple des commandes qu'un ingénieur de test pourrait utiliser pour tester votre programme:
 
@@ -167,7 +171,7 @@ $ echo 3 | ./tabelle | grep -P 'tabelle'
 $ echo 6 5 3 | ./tabelle | grep -P '\|    9 \|'
 ```
 
-Le programme `echo` converti tous les arguments sur `stdout`:
+Le programme `echo` converti tous les arguments passés au programme sur `stdout`:
 
 ```console
 $ echo Bonjour         les       amis
@@ -178,4 +182,4 @@ Le caractère de tuyauterie *pipe* `|` redirige le `stdout` d'un programme vers 
 
 Votre programme `tabelle` fait appel à des fonctions tels que `getchar` ou `scanf` qui lisent `stdin`.
 
-Enfin le programme `grep`, le plus magique de tous et le plus compliqué à comprendre cherche dans `stdin` un motif saisi sous forme d'expressions régulières. L'option `-P` utilisée permet d'utiliser une certaine senteur (*flavor*) d'expressions régulières: ici **PCRE**.
+Enfin le programme `grep`, le plus magique de tous et le plus compliqué à comprendre cherche dans `stdin` un motif saisi sous forme d'expressions régulières. L'option `-P` utilisée permet d'utiliser une certaine senteur (*flavor*) d'expressions régulières, ici **PCRE**.
