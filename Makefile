@@ -2,17 +2,12 @@ CSRCS=$(wildcard *.c)
 COBJS=$(patsubst %.c,%.o,$(CSRCS))
 EXEC=$(patsubst %.c,%, $(word 1, $(CSRCS)))
 
-CFLAGS=-std=c99 -g -Wall -pedantic
+CFLAGS=-std=c11 -g -Wall -pedantic
 LDFLAGS=-lm
 
 all: build
 
 build: $(EXEC)
-
-lib: lib$(EXEC).so
-
-lib$(EXEC).so: $(CSRCS)
-	$(CC) -shared -o $@ $^ -fPIC
 
 %: %.c
 	@echo -e '\e[1;34mCompilation...\e[m'

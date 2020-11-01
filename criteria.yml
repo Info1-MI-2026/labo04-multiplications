@@ -2,112 +2,108 @@
 ---
 details:
   binary:
-    description: Exécutable binaire
+    $description: Exécutable binaire
     menu:
-      description: Le menu s'affiche correctement avec le prompt
-      points: 2
+      $description: Le menu s'affiche correctement avec le prompt
+      $points: [0, 2]
     version:
-      description: Le programme affiche la version
-      points: 2
+      $description: Le programme affiche la version
+      $points: [0, 2]
     aide:
-      description: Le programme affiche l'aide
-      points: 2
+      $description: Le programme affiche l'aide
+      $points: [0, 2]
     saisie:
       scanf:
-        description: Le programme saisit les valeurs au clavier sur stdin
-        points: 2
+        $description: Le programme saisit les valeurs au clavier sur stdin
+        $points: [0, 2]
       default:
-        description: Les valeurs par défaut sont prise en compte et affichées à l'écran
-        points: 2
+        $description: Les valeurs par défaut sont prise en compte et affichées à l'écran
+        $points: [0, 2]
     multiplication:
       values:
-        description: Les valeurs de la table de multiplication sont correctes
-        points: 3
+        $description: Les valeurs de la table de multiplication sont correctes
+        $points: [0, 3]
       alignment:
-        description: L'alignement des chiffres est cohérent
-        points: 2
+        $description: L'alignement des chiffres est cohérent
+        $points: [0, 2]
       columns:
-        description: Le nombre de colonne est celui attendu
-        points: 2
-      continue:
-        description: L'utilisateur est invité à recommencer ou quitter le programme
-        points: 2
+        $description: Le nombre de colonne est celui attendu
+        $points: [0, 2]
       negative:
-        description: Les valeurs négatives sont gérées
-        points: 2
+        $description: Les valeurs négatives sont gérées
+        $points: [0, 2]
   testing:
-    description: Rapport de test présent et complet
-    points: 5
+    $description: Rapport de test présent et complet
+    $points: [0, 5]
+  functional-tests:
+    $description: Des tests automatiques existent
+    $points: [0, 5]
   build:
-    description: Compilation du code
+    $description: Compilation du code
     with-no-errors:
-      description: Aucune erreur de compilation
-      points: 2
+      $description: Aucune erreur de compilation
+      $points: [0, -2]
     with-no-warnings:
-      description: Aucune alerte de compilation
-      points: 2
+      $description: Aucune alerte de compilation
+      $points: [0, -2]
   code:
     description: Code source
     minimalism:
-      description:
-        - Le code est minimaliste et optimum
-      points: 2
+      $description: Le code est minimaliste et optimum
+      $points: [0, -2]
     header:
-      description:
-        - Une explication succinte du programme figure en tête de programme
-      points: 2
+      $description: Une explication succinte du programme figure en tête de programme
+      $points: [0, -2]
     types:
-      description:
-        - Les bons types de données sont utilisés (int, bool, ...)
-      points: 2
+      $description: Les bons types de données sont utilisés (int, bool, ...)
+      $points: [0, -2]
     constants:
-      description:
-        - Utilisation de constantes symboliques si applicable
-      points: 2
+      $description: Des constantes symboliques sont utilisées
+      $points: [0, -2]
     comments:
-      description:
+      $description:
         - Les commentaires sont utiles
         - Les commentaires expliquent pourquoi et non comment
         - Les commentaires ne sont pas surnuméraires
-      points: 3
+      $points: [0, -3]
     flow-control:
-      description:
+      $description:
         - Bon choix de structure de données
         - Bonne utilisation des structures de données
-      points: 3
+      $points: [0, -3]
     consistency:
-      description: Les conventions d'édition choisies sont cohérentes et harmonieuses
-      points: 1
+      $description: Les conventions d'édition choisies sont cohérentes et harmonieuses
+      $points: [0, 1]
     variables:
-      description:
+      $description:
         - Choix des noms approprié
         - Scope des variable adapté
         - Les types de données sont convenablement choisis
-      points: 2
+      $points: [0, -2]
     no-dead-code:
-      description: Il n'y a pas de code mort, non exécuté ou inutile
-      points: 1
+      $description: Il n'y a pas de code mort, non exécuté ou inutile
+      $points: [0, -1]
     dry:
-      description: 'Do not Repeat Yourself', le code ne contient pas de répétitions
-      points: 5
+      description: Le code ne contient pas de répétitions
+      $points: [0, -2]
     english:
-      description: Un effort est mis sur l'utilisation de l'anglais
-      points: 1
+      $description: Un effort est mis sur l'utilisation de l'anglais
+      $points: [0, -1]
     indentation:
       consistency:
-        description: L'indentation du code est cohérente et valide
-        points: 5
+        $description: L'indentation du code est cohérente et valide
+        $points: [0, -5]
   bonus:
     description: Bonus
     creativity:
-      description: L'étudiant a apporté de la créativité au projet.
-      bonus: 1
+      $description: L'étudiant a apporté de la créativité au projet.
+      $bonus: [0, 1]
     proactivity:
-      description: L'étudiant a démontré une certaine proactivité en allant plus loin que le cahier des charges initial.
-      bonus: 1
+      $description: L'étudiant a démontré une certaine proactivité en allant plus loin que le cahier des charges initial.
+      $bonus: [0, 1]
     rigourous:
-      description: L'étudiant s'est montré rigoureux avec la donnée, son travail et le résultat obtenu.
-      bonus: 1
+      $description: L'étudiant s'est montré rigoureux avec la donnée, son travail et le résultat obtenu.
+      $bonus: [0, 1]
     references:
-      description: Des références sont faites sur les sources des données extérieures.
-      bonus: 1
+      $description: Des références sont faites sur les sources des données extérieures.
+      $bonus: [0, 1]
