@@ -10,11 +10,9 @@ all: build
 build: $(EXEC)
 
 %: %.c
-	@echo -e '\e[1;34mCompilation...\e[m'
 	$(CC) $(CFLAGS) $? -o $@ $(LDFLAGS)
 
 clean:
-	@echo -e '\e[1;34mCleaning...\e[m'
 	$(RM) $(EXEC) *.o a.out lib$(EXEC).so
 
 .PHONY: all format build lib

@@ -1,42 +1,41 @@
 # Critères d'évaluation du travail pratique
 ---
 details:
+  late:
+    $description: Pénalité de rendu en cas de retard
+    $points: [0, -10]
   binary:
     $description: Exécutable binaire
     menu:
-      $description: Le menu s'affiche correctement avec le prompt
-      $points: [0, 2]
+      display:
+        $description: Le menu s'affiche correctement avec le prompt
+        $points: [0, 5]
+      capture:
+        $description: 
+          - Le menu fonctionne, les bonnes options sont sélectionnées.
+          - En cas d'erreur le menu est à nouveau affiché et l'utilisateur est notifié.
+        $points: [0, 5]        
     version:
       $description: Le programme affiche la version
-      $points: [0, 2]
+      $points: [0, 5]
     aide:
       $description: Le programme affiche l'aide
-      $points: [0, 2]
-    saisie:
-      scanf:
-        $description: Le programme saisit les valeurs au clavier sur stdin
-        $points: [0, 2]
-      default:
-        $description: Les valeurs par défaut sont prise en compte et affichées à l'écran
-        $points: [0, 2]
+      $points: [0, 5]
     multiplication:
       values:
         $description: Les valeurs de la table de multiplication sont correctes
         $points: [0, 3]
       alignment:
-        $description: L'alignement des chiffres est cohérent
-        $points: [0, 2]
+        $description: L'alignement des chiffres respecte le cahier des charges
+        $points: [0, 3]
       columns:
-        $description: Le nombre de colonne est celui attendu
+        $description: Le nombre de colonnes est celui attendu
         $points: [0, 2]
       negative:
         $description: Les valeurs négatives sont gérées
         $points: [0, 2]
   testing:
-    $description: Rapport de test présent et complet
-    $points: [0, 5]
-  functional-tests:
-    $description: Des tests automatiques existent
+    $description: Le rapport de test est présent et complet
     $points: [0, 5]
   build:
     $description: Compilation du code
@@ -50,15 +49,15 @@ details:
     description: Code source
     minimalism:
       $description: Le code est minimaliste et optimum
-      $points: [0, -2]
+      $points: [0, -3]
     header:
       $description: Une explication succinte du programme figure en tête de programme
-      $points: [0, -2]
+      $points: [0, -3]
     types:
       $description: Les bons types de données sont utilisés (int, bool, ...)
       $points: [0, -2]
     constants:
-      $description: Des constantes symboliques sont utilisées
+      $description: Des constantes symboliques sont utilisées si nécessaire
       $points: [0, -2]
     comments:
       $description:
@@ -67,13 +66,11 @@ details:
         - Les commentaires ne sont pas surnuméraires
       $points: [0, -3]
     flow-control:
-      $description:
-        - Bon choix de structure de données
-        - Bonne utilisation des structures de données
+      $description: Bon choix de structure de contrôles (boucles embranchement)
       $points: [0, -3]
     consistency:
       $description: Les conventions d'édition choisies sont cohérentes et harmonieuses
-      $points: [0, 1]
+      $points: [0, -2]
     variables:
       $description:
         - Choix des noms approprié
@@ -101,9 +98,6 @@ details:
     proactivity:
       $description: L'étudiant a démontré une certaine proactivité en allant plus loin que le cahier des charges initial.
       $bonus: [0, 1]
-    rigourous:
-      $description: L'étudiant s'est montré rigoureux avec la donnée, son travail et le résultat obtenu.
-      $bonus: [0, 1]
-    references:
-      $description: Des références sont faites sur les sources des données extérieures.
-      $bonus: [0, 1]
+    tests:
+      $description: L'étudiant a implémenté des tests automatiques
+      $bonus: [0, 2]
