@@ -35,7 +35,7 @@ Version 0.1.0 Copyright(c) HEIG-VD Y.Chevallier <yves.chevallier@heig-vd.ch>
 
 > 3
 
-Ce programme affiche les tables de multiplications pour mieux vous aider à les apprendre. 
+Ce programme affiche les tables de multiplication pour mieux vous aider à les apprendre. 
 
 1. Table de multiplication
 2. Version
@@ -65,20 +65,20 @@ Voulez-vous recommencer [Y/n] ? : n
 ## Cahier des charges
 
 - Le programme **doit** comporter un menu à plusieurs entrées.
-- Une des option du menu **doit** permettre d'afficher les tables de multiplication.
-- Chaque option du menu **doit** être placé dans une fonction C.
+- Une des options du menu **doit** permettre d'afficher les tables de multiplication.
+- Chaque option du menu **doit** être placée dans une fonction C.
 - L'utilisateur **doit** être invité à saisir le livret le plus élevé à afficher.
-- L'affichage de la table de multiplication **doit** être identique à l'exemble ci-dessus.
+- L'affichage de la table de multiplication **doit** être identique à l'exemple ci-dessus.
 - L'espacement entre les cases de la table **doit** être adapté selon les valeurs affichées.
 
 ## Déroulement du travail
 
-Séparez bien votre travail en commits séparés. Vous êtes libre dans votre démarche mais voici quelques étapes possibles :
+Séparez bien votre travail en commits séparés. Vous êtes libre dans votre démarche, mais voici quelques étapes possibles :
 
 1. Le menu fonctionne.
 2. La version fonctionne.
 3. L'aide fonctionne.
-4. La saisie du liveret le plus élevé fonctionne.
+4. La saisie du livret le plus élevé fonctionne.
 5. Le calcul du nombre de digits fonctionne.
 6. L'affichage de la table de multiplication fonctionne.
 7. L'utilisateur est invité à recommencer.
@@ -101,11 +101,11 @@ De plus en plus, la qualité du code est évaluée. Pour mémoire :
 
 ### Rapport de test
 
-Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown). Créez un fichier `report.md` et ajoutez le à votre référentiel Git avec `git add report.md`. Ce rapport doit être minimum, ne notez que vos observations et le strict essentiel. Il doit démontrer que votre programme est fonctionnel.
+Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown). Créez un fichier `report.md` et ajoutez-le à votre référentiel Git avec `git add report.md`. Ce rapport doit être minimum, ne notez que vos observations et le strict essentiel. Il doit démontrer que votre programme est fonctionnel.
 
 ### Compilation du code
 
-Pour compiler ce code vous utiliserez cette commande :
+Pour compiler ce code, vous utiliserez cette commande :
 
 ```console
 gcc -std=c99 -Wall -otabelle tabelle.c
