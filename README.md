@@ -19,32 +19,36 @@ $ ./tabelle
 
 Veuillez choisir une option :
 
-1. Table de multiplication
-2. Version
-3. Aide
-0. Quitter
+  1. Table de multiplication
+  2. Version
+  3. Aide
+  0. Quitter
 
 > 2
 
 Version 0.1.0 Copyright(c) HEIG-VD Y.Chevallier <yves.chevallier@heig-vd.ch>
 
-1. Table de multiplication
-2. Version
-3. Aide
-0. Quitter
+Veuillez choisir une option :
+
+  1. Table de multiplication
+  2. Version
+  3. Aide
+  0. Quitter
 
 > 3
 
 Ce programme affiche les tables de multiplication pour mieux vous aider à les apprendre. 
 
-1. Table de multiplication
-2. Version
-3. Aide
-0. Quitter
+Veuillez choisir une option :
+
+  1. Table de multiplication
+  2. Version
+  3. Aide
+  0. Quitter
 
 > 1
 
-Livret le plus élevé (1..10) [10]: 5
+Livret le plus élevé ? (1..10) [10]: 5
 
   X |  1 |  2 |  3 |  4 | 5
 ----+----+----+----+----+----
@@ -65,15 +69,18 @@ Voulez-vous recommencer [Y/n] ? : n
 ## Cahier des charges
 
 - Le programme **doit** comporter un menu à plusieurs entrées.
+- Le programme **doit** pouvoir afficher l'aide et sa version.
 - Une des options du menu **doit** permettre d'afficher les tables de multiplication.
 - Chaque option du menu **doit** être placée dans une fonction C.
 - L'utilisateur **doit** être invité à saisir le livret le plus élevé à afficher.
 - L'affichage de la table de multiplication **doit** être identique à l'exemple ci-dessus.
 - L'espacement entre les cases de la table **doit** être adapté selon les valeurs affichées.
+- Un rapport de test **doit** être complété.
+- Des tests automatiques **peuvent** être écrits.
 
 ## Déroulement du travail
 
-Séparez bien votre travail en commits séparés. Vous êtes libre dans votre démarche, mais voici quelques étapes possibles :
+Séparez bien votre travail en différents commits. Vous êtes libre dans votre démarche, mais voici quelques étapes possibles :
 
 1. Le menu fonctionne.
 2. La version fonctionne.
@@ -86,13 +93,15 @@ Séparez bien votre travail en commits séparés. Vous êtes libre dans votre d�
 9. Le rapport de tests est ajouté à Git et l'ensemble fonctionne.
 10. Dernières corrections avant rendu.
 
+N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fichiers sont présents.
+
 ## Détails
 
 ### Qualité du code
 
 De plus en plus, la qualité du code est évaluée. Pour mémoire :
 
-- un **commentaire** en début de programme résume le fonctionnement du programme ;
+- un **en-tête** en début de programme décrit le fonctionnement du programme ;
 - les variables sont nommées de façon **appropriées** ;
 - la **visibilité** (*scope*) des variables est minimum ;
 - les **constantes littérales** sont nommées pour une meilleure compréhension ;
@@ -101,7 +110,7 @@ De plus en plus, la qualité du code est évaluée. Pour mémoire :
 
 ### Rapport de test
 
-Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown). Créez un fichier `report.md` et ajoutez-le à votre référentiel Git avec `git add report.md`. Ce rapport doit être minimum, ne notez que vos observations et le strict essentiel. Il doit démontrer que votre programme est fonctionnel.
+Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown). Créez un fichier `report.md` et ajoutez-le à votre référentiel Git avec `git add report.md`. Ce rapport doit être minimum, ne notez que vos observations et le strict essentiel. Il doit démontrer que votre programme est fonctionnel et que vous l'avez correctement testé.
 
 ### Compilation du code
 
@@ -122,14 +131,11 @@ make
 L'un des objectifs de ce travail est de réaliser un menu interactif. Lorsque le programme sera exécuté, il affichera par exemple ceci sur `stdout` :
 
 ```console
-$ ./tabelle
-
 Veuillez choisir une option :
 
-1. Table de multiplication
-2. Version
-3. Aide
-0. Quitter
+  1. Option 1
+  2. Option 2
+  0. Quitter
 
 >
 
@@ -150,8 +156,8 @@ Voici un exemple de menu simple :
 while (!feof(stdin)) {
     // Affichage des options
 	printf(
-		"1. Option\n"
-		"2. Option\n"
+		"1. Option 1\n"
+		"2. Option 2\n"
 		"0. Quit\n\n"
 		"> "
 	);
@@ -182,12 +188,20 @@ La fonction `feof(stdin)` retourne `false` si la fin du buffer `stdin` est attei
 Chaque mode de fonctionnement du programme sera une fonction séparée et indépendante. Le prototype de ces fonctions sera le suivant :
 
 ```c
-void table(void);
-void help(void);
-void version(void);
+void table(void) {
+    // ...
+}
+
+void help(void) {
+    // ...
+}
+
+void version(void) {
+    // ...
+}
 ```
 
-### Saisie par l'utilisateur
+### Saisie par l'utilisateur d'une valeur
 
 La saisie sur `stdin` d'une valeur demandée à l'utilisateur pourrait être typiquement réalisée de la manière suivante :
 
@@ -204,7 +218,7 @@ int main(void) {
     (void)scanf("%c", &c);
     switch(tolower(c)) {
         case YES:
-            printf("PRUUUUUUUUST!\n");
+            printf("PRUUUUUuuuST!\n");
             break;
         case NO:
         default:
@@ -215,13 +229,13 @@ int main(void) {
 }
 ```
 
-Dans un invité utilisateur, il est courant de faire figurer les options possibles entre crochets (`[]`) et mettre en majuscule la valeur par défaut p. ex : `[Yn]` pour `Yes` et `No`. Constatez ci-dessus que `N` est la valeur par défaut et que le mot clé `default` est associé au cas `NO`. 
+Dans un invité utilisateur, il est courant de faire figurer les options possibles entre crochets (`[]`) et de mettre en majuscule la valeur par défaut *p. ex* : `[Yn]` pour `Yes` et `No`. Constatez ci-dessus que `N` est la valeur par défaut et que le mot clé `default` est associé au cas `NO`. 
 
 ### Tests et rapport de test
 
 Il vous est demandé d'écrire un petit rapport de test dans un fichier nommé `report.md`.
 
-Faites-y figurer quelques résultats de bon fonctionnement de votre programme. Inspirez-vous de la structure de ce fichier `README.md` pour afficher des exemples de code.
+Faites-y figurer quelques résultats de bon fonctionnement de votre programme. Inspirez-vous de la structure de ce fichier [README.md](README.md) pour afficher des exemples de code.
 
 Pour tester de façon plus automatique votre programme, vous pouvez directement envoyer les valeurs à saisir sur `stdin`. Voici par exemple des commandes qu'un ingénieur de test pourrait utiliser pour tester votre programme :
 
@@ -231,19 +245,6 @@ $ echo 3 | ./tabelle | grep -P 'tabelle'
 $ echo 6 5 | ./tabelle | grep -P '\|  9 \|'
 ```
 
-Le programme `echo` convertis tous les arguments passés au programme sur `stdout` :
-
-```console
-$ echo Bonjour         les       amis
-Bonjour les amis
-```
-
-Le caractère de tuyauterie *pipe* `|` redirige le `stdout` d'un programme vers le `stdin` d'un autre programme.
-
-Votre programme `tabelle` fait appel à des fonctions tels que `getchar` ou `scanf` qui lisent `stdin`.
-
-Enfin le programme `grep`, le plus magique de tous et le plus compliqué à comprendre cherche dans `stdin` un motif saisi sous forme d'expressions régulières. L'option `-P` utilisée permet d'utiliser une certaine senteur (*flavor*) d'expressions régulières, ici **PCRE**.
-
-Alternativement, vous pouvez utiliser Baygon comme dans le dernier labo pour tester votre programme. Vous trouverez la documentation [ici](https://heig-tin-info.github.io/baygon/). En bref, vous devez créer un fichier `tests.yaml` et le remplir avec vos différents tests. Pour exécutez vos tests exécutez simplement `baygon ./tabelle`.
+Alternativement, vous pouvez utiliser Baygon comme dans le dernier labo pour tester votre programme. Vous trouverez la documentation [ici](https://heig-tin-info.github.io/baygon/). En résumé, vous devez créer un fichier `tests.yaml` et le remplir avec vos différents tests. Pour exécutez vos tests exécutez simplement `baygon ./tabelle`.
 
 Notez que vous êtes totalement libre de faire vos tests comme vous le souhaitez.
