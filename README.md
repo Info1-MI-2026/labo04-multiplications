@@ -8,7 +8,7 @@ Ce travail pratique à pour but de se familiariser avec les boucles imbriquées,
 
 Cette fois-ci nous n'allons pas utiliser les arguments, mais l'entrée standard `stdin`. L'interface utilisateur sera par conséquent interactive. 
 
-Votre programme sera testé par vos soins et un petit rapport de test sera présent dans votre rendu.
+Votre programme sera testé par vos soins et un petit **rapport de test** sera présent dans votre rendu.
 
 Voici une simulation complète du programme que vous devez réaliser : 
 
@@ -93,7 +93,7 @@ Séparez bien votre travail en différents commits. Vous êtes libre dans votre 
 9. Le rapport de tests est ajouté à Git et l'ensemble fonctionne.
 10. Dernières corrections avant rendu.
 
-N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fichiers sont présents.
+N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fichiers sont présents. Ajoutez au besoin vos fichiers à Git avec `git add`.
 
 ## Détails
 
@@ -117,7 +117,7 @@ Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Ma
 Pour compiler ce code, vous utiliserez cette commande :
 
 ```console
-gcc -std=c99 -Wall -otabelle tabelle.c
+gcc -std=c11 -Wall -otabelle tabelle.c
 ```
 
 Mieux (**oui c'est mieux**), vous pouvez directement utiliser le `Makefile` associé :
@@ -148,19 +148,19 @@ L'implémentation du menu fait intervenir :
 - une boucle ;
 - l'instruction `switch` ;
 - l'instruction `scanf` ou `getchar` ;
-- l'appel de fonctions spécialisée (affichage de la version, affichage de l'aide...)
+- l'appel de fonctions spécialisées (affichage de la version, affichage de l'aide...)
 
 Voici un exemple de menu simple :
 
 ```c
 while (!feof(stdin)) {
     // Affichage des options
-	printf(
-		"1. Option 1\n"
-		"2. Option 2\n"
-		"0. Quit\n\n"
-		"> "
-	);
+	  printf(
+	    	"1. Option 1\n"
+	    	"2. Option 2\n"
+	    	"0. Quit\n\n"
+	    	"> "
+	  );
 
     // Lecture d'un caractère au clavier
     char c = getchar();
@@ -172,11 +172,11 @@ while (!feof(stdin)) {
     // Traitement du choix
     switch(c) {
 		case 1:
-			break;
+		  	break;
 		case 2:
-			break;
+		  	break;
 		default:
-			break;
+		  	break;
 	}
 }
 ```
