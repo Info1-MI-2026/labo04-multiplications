@@ -6,11 +6,11 @@
 
 Ce travail pratique à pour but de se familiariser avec les boucles imbriquées, les `printf` et la création d'un menu en ligne de commande.
 
-Cette fois-ci nous n'allons pas utiliser les arguments, mais l'entrée standard `stdin`. L'interface utilisateur sera par conséquent interactive. 
+Cette fois-ci nous n'allons pas utiliser les arguments, mais l'entrée standard `stdin`. L'interface utilisateur sera par conséquent interactive.
 
 Votre programme sera testé par vos soins et un petit **rapport de test** sera présent dans votre rendu.
 
-Voici une simulation complète du programme que vous devez réaliser : 
+Voici une simulation complète du programme que vous devez réaliser :
 
 ```console
 $ make
@@ -37,7 +37,7 @@ Veuillez choisir une option :
 
 > 3
 
-Ce programme affiche les tables de multiplication pour mieux vous aider à les apprendre. 
+Ce programme affiche les tables de multiplication pour mieux vous aider à les apprendre.
 
 Veuillez choisir une option :
 
@@ -75,7 +75,7 @@ Voulez-vous recommencer [Y/n] ? : n
 - L'utilisateur **doit** être invité à saisir le livret le plus élevé à afficher.
 - L'affichage de la table de multiplication **doit** être identique à l'exemple ci-dessus.
 - L'espacement entre les cases de la table **doit** être adapté selon les valeurs affichées.
-- Un rapport de test **doit** être complété.
+- Un rapport de test **doit** être achevé.
 - Des tests automatiques **peuvent** être écrits.
 
 ## Déroulement du travail
@@ -86,10 +86,10 @@ Séparez bien votre travail en différents commits. Vous êtes libre dans votre 
 2. La version fonctionne.
 3. L'aide fonctionne.
 4. La saisie du livret le plus élevé fonctionne.
-5. Le calcul du nombre de digits fonctionne.
+5. Le calcul du nombre de chiffres fonctionne.
 6. L'affichage de la table de multiplication fonctionne.
 7. L'utilisateur est invité à recommencer.
-8. Correction de bugs.
+8. Correction de bogues.
 9. Le rapport de tests est ajouté à Git et l'ensemble fonctionne.
 10. Dernières corrections avant rendu.
 
@@ -102,7 +102,7 @@ N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fi
 De plus en plus, la qualité du code est évaluée. Pour mémoire :
 
 - un **en-tête** en début de programme décrit le fonctionnement du programme ;
-- les variables sont nommées de façon **appropriées** ;
+- les variables sont nommées de façon **appropriée** ;
 - la **visibilité** (*scope*) des variables est minimum ;
 - les **constantes littérales** sont nommées pour une meilleure compréhension ;
 - les **types** de données doivent être appropriés au contenu ciblé (`signed`, `unsigned`) ;
@@ -155,12 +155,12 @@ Voici un exemple de menu simple :
 ```c
 while (!feof(stdin)) {
     // Affichage des options
-	  printf(
-	    	"1. Option 1\n"
-	    	"2. Option 2\n"
-	    	"0. Quit\n\n"
-	    	"> "
-	  );
+      printf(
+            "1. Option 1\n"
+            "2. Option 2\n"
+            "0. Quit\n\n"
+            "> "
+      );
 
     // Lecture d'un caractère au clavier
     char c = getchar();
@@ -171,13 +171,13 @@ while (!feof(stdin)) {
 
     // Traitement du choix
     switch(c) {
-		case 1:
-		  	break;
-		case 2:
-		  	break;
-		default:
-		  	break;
-	}
+        case 1:
+              break;
+        case 2:
+              break;
+        default:
+              break;
+    }
 }
 ```
 
@@ -224,12 +224,12 @@ int main(void) {
         default:
             printf("(rien)\n");
             break;
-    }    
-	return 0;
+    }
+    return 0;
 }
 ```
 
-Dans un invité utilisateur, il est courant de faire figurer les options possibles entre crochets (`[]`) et de mettre en majuscule la valeur par défaut *p. ex* : `[Yn]` pour `Yes` et `No`. Constatez ci-dessus que `N` est la valeur par défaut et que le mot clé `default` est associé au cas `NO`. 
+Dans un invité utilisateur, il est courant de faire figurer les options possibles entre crochets (`[]`) et de mettre en majuscule la valeur par défaut *p. ex* : `[Yn]` pour `Yes` et `No`. Constatez ci-dessus que `N` est la valeur par défaut et que le mot clé `default` est associé au cas `NO`.
 
 ### Tests et rapport de test
 
@@ -245,6 +245,6 @@ $ echo 3 | ./tabelle | grep -P 'tabelle'
 $ echo 6 5 | ./tabelle | grep -P '\|  9 \|'
 ```
 
-Alternativement, vous pouvez utiliser Baygon comme dans le dernier labo pour tester votre programme. Vous trouverez la documentation [ici](https://heig-tin-info.github.io/baygon/). En résumé, vous devez créer un fichier `tests.yaml` et le remplir avec vos différents tests. Pour exécutez vos tests exécutez simplement `baygon ./tabelle`.
+Alternativement, vous pouvez utiliser Baygon comme dans le dernier labo pour tester votre programme. Vous trouverez la documentation [ici](https://heig-tin-info.github.io/baygon/). En résumé, vous devez créer un fichier `tests.yaml` et le remplir avec vos différents tests. Pour exécuter vos tests, exécutez simplement `baygon ./tabelle`.
 
 Notez que vous êtes totalement libre de faire vos tests comme vous le souhaitez.

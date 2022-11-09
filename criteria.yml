@@ -1,9 +1,17 @@
 # Critères d'évaluation du travail pratique
 ---
-details:
+criteria:
   late:
     $description: Pénalité de rendu en cas de retard
     $points: [0, -10]
+  build:
+    $description: Compilation du code
+    with-no-errors:
+      $description: Aucune erreur de compilation
+      $points: [0, -2]
+    with-no-warnings:
+      $description: Aucune alerte de compilation
+      $points: [0, -2]
   binary:
     $description: Exécutable binaire
     menu:
@@ -11,10 +19,10 @@ details:
         $description: Le menu s'affiche correctement avec le prompt
         $points: [0, 5]
       capture:
-        $description: 
+        $description: |
           - Le menu fonctionne, les bonnes options sont sélectionnées.
           - En cas d'erreur le menu est à nouveau affiché et l'utilisateur est notifié.
-        $points: [0, 5]        
+        $points: [0, 5]
     version:
       $description: Le programme affiche la version
       $points: [0, 5]
@@ -35,23 +43,19 @@ details:
         $description: Les valeurs négatives sont gérées
         $points: [0, 2]
   testing:
-    $description: Le rapport de test est présent et complet
-    $points: [0, 5]
-  build:
-    $description: Compilation du code
-    with-no-errors:
-      $description: Aucune erreur de compilation
-      $points: [0, -2]
-    with-no-warnings:
-      $description: Aucune alerte de compilation
-      $points: [0, -2]
+    report:
+      $description: Le rapport de test est présent et complet
+      $points: [0, 5]
+    tests:
+      $description: Les tests dans test.yml passent
+      $points: [0, 5]
   code:
-    description: Code source
+    $description: Code source
     minimalism:
       $description: Le code est minimaliste et optimum
       $points: [0, -3]
     header:
-      $description: Une explication succinte du programme figure en tête de programme
+      $description: Une explication succincte du programme figure en tête de programme
       $points: [0, -3]
     types:
       $description: Les bons types de données sont utilisés (int, bool, ...)
@@ -60,7 +64,7 @@ details:
       $description: Des constantes symboliques sont utilisées si nécessaire
       $points: [0, -2]
     comments:
-      $description:
+      $description: |
         - Les commentaires sont utiles
         - Les commentaires expliquent pourquoi et non comment
         - Les commentaires ne sont pas surnuméraires
@@ -72,7 +76,7 @@ details:
       $description: Les conventions d'édition choisies sont cohérentes et harmonieuses
       $points: [0, -2]
     variables:
-      $description:
+      $description: |
         - Choix des noms approprié
         - Scope des variable adapté
         - Les types de données sont convenablement choisis
@@ -81,7 +85,7 @@ details:
       $description: Il n'y a pas de code mort, non exécuté ou inutile
       $points: [0, -1]
     dry:
-      description: Le code ne contient pas de répétitions
+      $description: Le code ne contient pas de répétitions
       $points: [0, -2]
     english:
       $description: Un effort est mis sur l'utilisation de l'anglais
@@ -91,7 +95,7 @@ details:
         $description: L'indentation du code est cohérente et valide
         $points: [0, -5]
   bonus:
-    description: Bonus
+    $description: Bonus
     creativity:
       $description: L'étudiant a apporté de la créativité au projet.
       $bonus: [0, 1]
@@ -99,5 +103,5 @@ details:
       $description: L'étudiant a démontré une certaine proactivité en allant plus loin que le cahier des charges initial.
       $bonus: [0, 1]
     tests:
-      $description: L'étudiant a implémenté des tests automatiques
+      $description: L'étudiant a implémenté des tests automatiques supplémentaires
       $bonus: [0, 2]
