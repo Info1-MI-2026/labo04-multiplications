@@ -1,10 +1,15 @@
 # Tabelle
 
-- **Durée**: 4 périodes + travail à la maison
+| Type          | Description |
+| ------------- | ----------- |
+| Durée         | 4x45 minutes + Travail à la maison |
+| Rendu         | Sur GitHub |
+| Format        | Travail individuel |
+| Évaluation    | Sur les critères de `criteria.yml` |
 
 ## Objectifs
 
-Ce travail pratique à pour but de se familiariser avec les boucles imbriquées, les `printf` et la création d'un menu en ligne de commande.
+Ce travail pratique vise à se familiariser avec les boucles imbriquées, les `printf` et la création d'un menu en ligne de commande.
 
 Cette fois-ci nous n'allons pas utiliser les arguments, mais l'entrée standard `stdin`. L'interface utilisateur sera par conséquent interactive.
 
@@ -95,7 +100,7 @@ Séparez bien votre travail en différents commits. Vous êtes libre dans votre 
 
 N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fichiers sont présents. Ajoutez au besoin vos fichiers à Git avec `git add`.
 
-## Détails
+## Détailsll
 
 ### Qualité du code
 
@@ -111,6 +116,8 @@ De plus en plus, la qualité du code est évaluée. Pour mémoire :
 ### Rapport de test
 
 Votre rapport de test sera écrit en [Markdown](https://fr.wikipedia.org/wiki/Markdown). Créez un fichier `report.md` et ajoutez-le à votre référentiel Git avec `git add report.md`. Ce rapport doit être minimum, ne notez que vos observations et le strict essentiel. Il doit démontrer que votre programme est fonctionnel et que vous l'avez correctement testé.
+
+**ATTENTION** Vérifier que votre rapport est bien disponible sur GitHub avant l'échéance.
 
 ### Compilation du code
 
