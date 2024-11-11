@@ -17,23 +17,17 @@ tests:
   - name: Table
     tests:
       - name: Five
-        stdin: "1\n3\n5\n0\n"
+        stdin: "1\n5\n0\n"
         stdout:
           - contains: " X |  1 |  2 |  3 |  4 |  5"
           - contains: " 1 |  1 |  2 |  3 |  4 |  5"
           - contains: " 4 |  4 |  8 | 12 | 16 | 20"
           - contains: " 5 |  5 | 10 | 15 | 20 | 25"
       - name: Eight
-        stdin: "1\n3\n8\n0\n"
+        stdin: "1\n8\n0\n"
         stdout:
           - contains: " 5 |  5 | 10 | 15 | 20 | 25 | 30 | 35 | 40"
           - contains: " 8 |  8 | 16 | 24 | 32 | 40 | 48 | 56 | 64"
-      - name: Padding 10
-        stdin: "1\n10\n3\n0\n"
-        stdout:
-          - contains: "  1 |         1 |         2 |         3"
-          - contains: "  2 |         2 |         4 |         6"
-          - contains: "----+-----------+-----------+-----------"
   - name: Help
     tests:
       - name: Has 'programme'

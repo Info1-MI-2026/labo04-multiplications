@@ -15,4 +15,7 @@ build: $(EXEC)
 clean:
 	$(RM) $(EXEC) *.o a.out lib$(EXEC).so
 
-.PHONY: all format build lib
+test: $(EXEC)
+	baygon ./$< -vvv
+
+.PHONY: all format build test

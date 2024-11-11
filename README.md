@@ -1,11 +1,11 @@
 # Tabelle
 
-| Type          | Description |
-| ------------- | ----------- |
-| Durée         | 4x45 minutes + Travail à la maison |
-| Rendu         | Sur GitHub |
-| Format        | Travail individuel |
-| Évaluation    | Sur les critères de `criteria.yml` |
+| Type       | Description                        |
+| ---------- | ---------------------------------- |
+| Durée      | 4x45 minutes + Travail à la maison |
+| Rendu      | Sur GitHub                         |
+| Format     | Travail individuel                 |
+| Évaluation | Sur les critères de `criteria.yml` |
 
 ## Objectifs
 
@@ -73,15 +73,15 @@ Voulez-vous recommencer [Y/n] ? : n
 
 ## Cahier des charges
 
-- Le programme **doit** comporter un menu à plusieurs entrées.
-- Le programme **doit** pouvoir afficher l'aide et sa version.
-- Une des options du menu **doit** permettre d'afficher les tables de multiplication.
-- Chaque option du menu **doit** être placée dans une fonction C.
-- L'utilisateur **doit** être invité à saisir le livret le plus élevé à afficher.
-- L'affichage de la table de multiplication **doit** être identique à l'exemple ci-dessus.
-- L'espacement entre les cases de la table **doit** être adapté selon les valeurs affichées.
-- Un rapport de test **doit** être achevé.
-- Des tests automatiques **peuvent** être écrits.
+1. Le programme **doit** comporter un menu à plusieurs entrées.
+2. Le programme **doit** pouvoir afficher l'aide et sa version.
+3. Une des options du menu **doit** permettre d'afficher les tables de multiplication.
+4. Chaque option du menu **doit** être placée dans une fonction C.
+5. L'utilisateur **doit** être invité à saisir le livret le plus élevé à afficher.
+6. L'affichage de la table de multiplication **doit** être identique à l'exemple ci-dessus.
+7. L'espacement entre les cases de la table **doit** être adapté selon les valeurs affichées.
+8. Un rapport de test **doit** être achevé.
+9. Des tests automatiques **peuvent** être écrits.
 
 ## Déroulement du travail
 
@@ -100,15 +100,15 @@ Séparez bien votre travail en différents commits. Vous êtes libre dans votre 
 
 N'oubliez pas à la fin de votre travail de vérifier sur GitHub que tous les fichiers sont présents. Ajoutez au besoin vos fichiers à Git avec `git add`.
 
-## Détailsll
+## Détails
 
 ### Qualité du code
 
-De plus en plus, la qualité du code est évaluée. Pour mémoire :
+Dans ce travail pratique, la qualité du code sera évaluée. Pour mémoire :
 
 - un **en-tête** en début de programme décrit le fonctionnement du programme ;
 - les variables sont nommées de façon **appropriée** ;
-- la **visibilité** (*scope*) des variables est minimum ;
+- la **visibilité** (*scope*) des variables est réduite au minimum ;
 - les **constantes littérales** sont nommées pour une meilleure compréhension ;
 - les **types** de données doivent être appropriés au contenu ciblé (`signed`, `unsigned`) ;
 - le programme doit être **robuste**, les cas d'exception doivent être traités.
@@ -148,7 +148,7 @@ Veuillez choisir une option :
 
 ```
 
-Le caractère `>` est nommé *prompt*. C'est un invité de commande, c'est-à-dire un caractère qui vous invite à entrer une commande. À ce moment, le programme stoppe son exécution et attend que l'utilisateur saisisse quelque chose au clavier (en réalité, qu'une information soit écrite dans `stdin`).
+Le caractère `>` est nommé *prompt*. C'est un invité de commande, c'est-à-dire un caractère qui vous invite à entrer une commande. À ce moment, le programme stoppe son exécution et attend que l'utilisateur saisisse quelque chose au clavier (en réalité, le système d'exploitation attends qu'une information soit écrite dans `stdin` pour libérer le programme).
 
 L'implémentation du menu fait intervenir :
 
@@ -162,19 +162,21 @@ Voici un exemple de menu simple :
 ```c
 while (!feof(stdin)) {
     // Affichage des options
-      printf(
-            "1. Option 1\n"
-            "2. Option 2\n"
-            "0. Quit\n\n"
-            "> "
-      );
+    printf(
+        "1. Option 1\n"
+        "2. Option 2\n"
+        "0. Quit\n\n"
+        "> "
+    );
 
     // Lecture d'un caractère au clavier
     char c = getchar();
 
     // Consomme le restant des caractères tapés encore dans `stdin`
-    char d;
-    while ( (d = getchar()) != '\n' && d != EOF ) { }
+    {
+        char d;
+        while ( (d = getchar()) != '\n' && d != EOF ) { }
+    }
 
     // Traitement du choix
     switch(c) {
