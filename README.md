@@ -145,7 +145,6 @@ Veuillez choisir une option :
   0. Quitter
 
 >
-
 ```
 
 Le caractère `>` est nommé *prompt*. C'est un invité de commande, c'est-à-dire un caractère qui vous invite à entrer une commande. À ce moment, le programme stoppe son exécution et attend que l'utilisateur saisisse quelque chose au clavier (en réalité, le système d'exploitation attends qu'une information soit écrite dans `stdin` pour libérer le programme).
@@ -248,7 +247,7 @@ Faites-y figurer quelques résultats de bon fonctionnement de votre programme. I
 
 Pour tester de façon plus automatique votre programme, vous pouvez directement envoyer les valeurs à saisir sur `stdin`. Voici par exemple des commandes qu'un ingénieur de test pourrait utiliser pour tester votre programme :
 
-```console
+```bash
 $ echo 2 | ./tabelle | grep -P '[Vv]ersion'
 $ echo 3 | ./tabelle | grep -P 'tabelle'
 $ echo 6 5 | ./tabelle | grep -P '\|  9 \|'
