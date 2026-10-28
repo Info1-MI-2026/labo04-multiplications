@@ -1,21 +1,38 @@
-CSRCS=$(wildcard *.c)
-COBJS=$(patsubst %.c,%.o,$(CSRCS))
-EXEC=$(patsubst %.c,%, $(word 1, $(CSRCS)))
+#
+# Makefile
+#
 
-CFLAGS=-std=c11 -g -Wall -pedantic
-LDFLAGS=-lm
+# set the executable name
+EXEC=tabelle
 
-all: build
+CC=gcc
+CFLAGS+= -std=c99 -Wall -g
+LDLIBS:= -lm
 
-build: $(EXEC)
+ODIR:=obj
 
-%: %.c
-	$(CC) $(CFLAGS) $? -o $@ $(LDFLAGS)
+SRC := $(wildcard *.c)
+OBJS = $(patsubst %,$(ODIR)/%,$(SRC:.c=.o))
+
+all: $(EXEC)
+
+-include $(ODIR)/*.d
+
+$(EXEC): $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+
+$(ODIR)/%.o: %.c | $(ODIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -MMD -MF $(@:.o=.d)
+
+$(ODIR):
+	mkdir $@
 
 clean:
-	$(RM) $(EXEC) *.o a.out lib$(EXEC).so
+	$(RM) $(EXEC)
+	$(RM) -rf $(ODIR)
 
-test: $(EXEC)
-	baygon ./$< -vvv
+format: main.c
+	clang-format -i main.c
 
-.PHONY: all format build test
+.PHONY:	clean all format
+.DEFAULT: all

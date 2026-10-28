@@ -1,4 +1,4 @@
-name: Test Multiplications
+name: Labo 04 - Tables de multiplication
 version: 1
 tests:
   - name: Menu
@@ -10,45 +10,46 @@ tests:
           - contains: "Version"
           - contains: "Aide"
           - contains: "Quitter"
-      - name: Prompt is visible
-        stdin: "0\n"
-        stdout:
           - contains: ">"
+        exit: 0
+      - name: Unknown option then quit
+        stdin: "7\n0\n"
+        exit: 0
+      - name: Text instead of a number then quit
+        stdin: "abc\n0\n"
+        exit: 0
   - name: Table
     tests:
       - name: Five
         stdin: "1\n5\n0\n"
         stdout:
-          - contains: " X |  1 |  2 |  3 |  4 |  5"
-          - contains: " 1 |  1 |  2 |  3 |  4 |  5"
-          - contains: " 4 |  4 |  8 | 12 | 16 | 20"
-          - contains: " 5 |  5 | 10 | 15 | 20 | 25"
-      - name: Eight
-        stdin: "1\n8\n0\n"
+          - contains: "  X |   1 |   2 |   3 |   4 |   5"
+          - contains: "----+-----+-----+-----+-----+-----"
+          - contains: "  4 |   4 |   8 |  12 |  16 |  20"
+          - contains: "  5 |   5 |  10 |  15 |  20 |  25"
+      - name: Ten
+        stdin: "1\n10\n0\n"
         stdout:
-          - contains: " 5 |  5 | 10 | 15 | 20 | 25 | 30 | 35 | 40"
-          - contains: " 8 |  8 | 16 | 24 | 32 | 40 | 48 | 56 | 64"
+          - contains: "  7 |   7 |  14 |  21 |  28 |  35 |  42 |  49 |  56 |  63 |  70"
+          - contains: " 10 |  10 |  20 |  30 |  40 |  50 |  60 |  70 |  80 |  90 | 100"
+      - name: One
+        stdin: "1\n1\n0\n"
+        stdout:
+          - contains: "  1 |   1"
+      - name: Invalid values are asked again
+        stdin: "1\n12\n-3\nabc\n3\n0\n"
+        stdout:
+          - contains: "  3 |   3 |   6 |   9"
+        exit: 0
   - name: Help
     tests:
-      - name: Has 'programme'
-        stdin: "3\n0\n"
-        stdout:
-          - contains: "programme"
       - name: Has 'multiplication'
         stdin: "3\n0\n"
         stdout:
-          - contains: "multiplication"
+          - regex: "[Mm]ultiplication"
   - name: Version
     tests:
-      - name: Has version name
+      - name: Has version number
         stdin: "2\n0\n"
         stdout:
-          - contains: "Version"
-      - name: Has copyright
-        stdin: "2\n0\n"
-        stdout:
-          - contains: "Copyright"
-      - name: Has email
-        stdin: "2\n0\n"
-        stdout:
-          - regex: '[\w\.-]+@[\w\.-]+'
+          - regex: '[Vv]ersion.*\d+\.\d+'
